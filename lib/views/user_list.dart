@@ -1,8 +1,8 @@
 import 'package:crud/components/user_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:teste/data/dummy_users.dart';
+import 'package:crud/data/dummy_users.dart';
 
-class UserList extends StateLessWidget {
+class UserList extends StatelessWidget {
   const UserList({super.key});
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste/views/user_list.dart';
+import 'package:crud/views/user_list.dart';
 
 void main() {
   runApp(const MyApp());
