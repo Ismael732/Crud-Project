@@ -1,4 +1,6 @@
 import 'package:crud/models/user.dart';
+import 'package:crud/provider/users.dart';
+import 'package:crud/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class UserTile extends StatelessWidget {
@@ -7,8 +9,7 @@ class UserTile extends StatelessWidget {
   UserTile(this.user, {super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final avatar = user.avatarUrl == null || user.avatarUrl!.isEmpty
+  Widget build(BuildContext context) {    final avatar = user.avatarUrl == null || user.avatarUrl!.isEmpty
         ? const CircleAvatar(
       child:Icon(Icons.person),
     )
@@ -32,7 +33,30 @@ class UserTile extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(Icons.delete),
                   color: Colors.red)
-        ],
+          onPressed: () {
+          ShowDialog()
+              contex: context,
+            builder: (ctx) => AlertDialog(
+            title: const Text('Excluir Usuario'),
+            content: const Text('Tem certeza?'),
+            actions: <widget> [
+              TextButton(
+            OnPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('Nao'),
+            TextButton(
+            onPressed: () {
+              Provider.of<Users>(context, listen: false)
+            .remove(user);
+              Navigator.of(context).pop();
+            },
+            child: const Text('sim')),
+              ],
+            ));
+        },
+  )
+  ],
       ),
     ));
   }
