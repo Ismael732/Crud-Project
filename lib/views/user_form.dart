@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class UserForm extends StatefulWidget {
+  const UserForm({super.key});
+
   @override
   State<UserForm> createState() => _UserFormState();
 }
@@ -53,7 +55,7 @@ class _UserFormState extends State<UserForm> {
                   _isLoading = true;
                 });
 
-                await Provider.of<Users>(context, listen: false).put(
+                Provider.of<Users>(context, listen: false).put(
                   User(
                     id: _formData['id'],
                     name: _formData['name'],
@@ -101,7 +103,8 @@ class _UserFormState extends State<UserForm> {
               ),
               TextFormField(
                 initialValue: _formData['avatarUrl'],
-                decoration: const InputDecoration(labelText: 'Url do Avatar'),
+                decoration:
+                const InputDecoration(labelText: 'Url do Avatar'),
                 onSaved: (value) => _formData['avatarUrl'] = value!,
               ),
             ],

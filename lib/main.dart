@@ -11,8 +11,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          AppRoutes.home: (_) => UserList(),
+          AppRoutes.home: (_) => const UserList(),
           AppRoutes.user_form: (_) => UserForm()
         },
       ),
